@@ -60,6 +60,14 @@ fn CV() -> Element {
                         }
                     }
                 }
+                div { class: "github-container",
+                    a {
+                        class: "github-link",
+                        href: "https://github.com/SergeiGL",
+                        target: "_blank",
+                        "GitHub"
+                    }
+                }
             }
 
             // Experience Section
@@ -68,9 +76,25 @@ fn CV() -> Element {
 
                 div { class: "experience-item",
                     div { class: "experience-header",
+                        h3 { class: "company-name", "SBER CIB + HSE"
+                            span { class: "separator", "•" }
+                            span { class: "position", "Rust Developer" }
+                        }
+                        span { class: "duration", "09/2024 - 08/2025" }
+                    }
+                    ul { class: "achievements",
+                        li { "World's fastest MCS algorithm implementation (>500x+ performance boost)"}
+                        li { "Ecosystem: Web, C++/Python connectors" }
+                        li { "400+ unit tests with 90% coverage" }
+                        li { "Applied to real-world financial problems: portfolio optimization and model calibration" }
+                    }
+                }
+
+                div { class: "experience-item",
+                    div { class: "experience-header",
                         h3 { class: "company-name", "Cryptanium Fund"
                             span { class: "separator", "•" }
-                            span { class: "position", "Developer" }
+                            span { class: "position", "Python Developer" }
                         }
                         span { class: "duration", "09/2023 - 05/2024" }
                     }
@@ -143,14 +167,7 @@ fn CV() -> Element {
 
             // TechnicalSkillsSection
             section { class: "cv-section",
-                div {class: "tech-skills-title-container",
-                    h2 { class: "section-title", "Technical Skills" }
-                    a {
-                        class: "github-link",
-                        href: "https://github.com/SergeiGL",
-                        "GitHub"
-                    }
-                }
+                h2 { class: "section-title", "Technical Skills" }
                 div { class: "skills-container",
                     div { class: "skill-group",
                         h3 { class: "list-header", "Programming" }
@@ -184,6 +201,7 @@ fn CV() -> Element {
                         h3 {class: "list-header", "Interests" }
                         ul { class: "skills-list",
                             li { span {class: "highlight", "Piano"}" (music school diploma)" }
+                            li { span {class: "highlight", "Padel"}"" }
                             li { "Chess (1400 elo)" }
                             li { "Table Tennis" }
                         }
@@ -191,6 +209,7 @@ fn CV() -> Element {
                     div { class: "skill-group",
                         h3 {class: "list-header", "Personal Skills" }
                         ul { class: "skills-list",
+                            li { span {class: "highlight", "Inner Drive"} }
                             li { span {class: "highlight", "Positive Mindset"} }
                             li { "Team Player" }
                             li { "Exceptional Ability to Learn" }
