@@ -2,20 +2,6 @@ use dioxus::prelude::*;
 
 const MAIN_CSS: Asset = asset!("/assets/main.css");
 
-fn format_number(num: u32) -> String {
-    let num_str = num.to_string();
-    let mut result = String::new();
-    let chars: Vec<char> = num_str.chars().collect();
-    
-    for (i, ch) in chars.iter().enumerate() {
-        if i > 0 && (chars.len() - i) % 3 == 0 {
-            result.push(',');
-        }
-        result.push(*ch);
-    }
-    
-    result
-}
 
 fn main() {
     dioxus::launch(App);
@@ -55,10 +41,11 @@ fn CV() -> Element {
                     span { class: "separator", "•" }
                     span { "Apr 21, 2003" }
                     span { class: "separator", "•" }
-                    a { href: "mailto:sglukhov.private@gmail.com", "sglukhov.private@gmail.com" }
+                    a { href: "mailto:sglukhov.private@gmail.com", target: "_blank", "sglukhov.private@gmail.com" }
                     span { class: "separator", "•" }
                     a {
                         href: "https://t.me/iloveeconom",
+                        target: "_blank",
                         class: "telegram-link",
                         // SVG for Telegram logo with appropriate sizing
                         svg {
@@ -94,13 +81,13 @@ fn CV() -> Element {
                             span { class: "separator", "•" }
                             span { class: "position", "Rust Developer" }
                         }
-                        span { class: "duration", "09/2024 - 08/2025" }
+                        span { class: "duration", "Sep 2024 - Jul 2025" }
                     }
                     ul { class: "achievements",
-                        li { "World’s fastest MCS algorithm - 500x+ speedup"}
+                        li { "World’s Fastest MCS Algorithm (>500x speedup)"}
                         li { "Ecosystem: Web, Python/C++ connectors" }
-                        li { "{format_number(23625)} lines; 392 tests" }
-                        li { "Applied to real-world financial problems" }
+                        li { "23,625 lines; 392 tests" }
+                        li { "Solved Real-world Financial Challenges" }
                     }
                 }
 
@@ -110,45 +97,35 @@ fn CV() -> Element {
                             span { class: "separator", "•" }
                             span { class: "position", "Python Developer" }
                         }
-                        span { class: "duration", "09/2023 - 05/2024" }
+                        span { class: "duration", "Sep 2023 - May 2024" }
                     }
                     ul { class: "achievements",
                         li { "Trading Strategies (Python & C)" }
                         li { "Real-time Data Collection" }
-                        li { "Telegram & GUI apps for top executives" }
+                        li { "Telegram & GUI Apps for Top Executives" }
                     }
                 }
-
-                div { class: "minor-roles-container",
-                    div { class: "experience-item minor-role",
+                div { class: "minor-role",
+                    div { class: "experience-item",
                         div { class: "experience-header",
-                            h3 { class: "company-name", "McK Partners"
-                                span { class: "separator", "•" }
-                                span { class: "position", "Consultant" }
-                            }
-                            span { class: "duration", "01/2024 - 02/2024" }
+                            h3 { class: "company-name", "McK Partners" span { class: "position", "Consultant" } }
                         }
-
                         ul { class: "achievements",
                             li { "Presentations, Analytics, Market Research"}
                         }
                     }
 
-                    div { class: "experience-item minor-role",
+                    div { class: "experience-item",
                         div { class: "experience-header",
-                            h3 { class: "company-name", "EVRAZ Group"
-                                span { class: "separator", "•" }
-                                span {class: "position", "Finance Intern"}
-                            }
-                            span { class: "duration", "07/2023 - 09/2023" }
+                            h3 { class: "company-name", "EVRAZ Group" span {class: "position", "Finance Intern"}
+}
                         }
                         ul { class: "achievements",
-                            li { "Credit Documents Structuring (Python OCR)" }
+                            li { "Credit Documents Structuring (Python)" }
                         }
                     }
                 }
             }
-
             // Education Section
             section { class: "cv-section",
                 h2 { class: "section-title", "Education" }
@@ -156,13 +133,13 @@ fn CV() -> Element {
                 div { class: "education-item",
                     div {class: "education-header",
                         h3 { class: "company-name",
-                            "ICEF (HSE & UoL)"
+                            "ICEF (BSc, HSE & UoL)"
                         }
                         span { class: "duration", "2021 - 2025" }
                     }
                     ul { class: "achievements",
                         li { "Top 10% Academic Performance" }
-                        li { "Optional Advanced Courses: Mathematics++, Statistics++, ML" }
+                        li { "Advanced Courses: Mathematics++, Statistics++, ML" }
                     }
                 }
 
@@ -191,7 +168,7 @@ fn CV() -> Element {
                             li { "Docker, Kubernetes" }
                         }
                     }
-                    div { class: "skill-group minor-skills",
+                    div { class: "skill-group",
                         h3 {class: "list-header", "Analytics" }
                         ul { class: "skills-list",
                             li { "NumPy, Pandas, Plotly, SciPy" }
@@ -223,7 +200,7 @@ fn CV() -> Element {
                             li { span {class: "highlight", "Inner Drive"} }
                             li { span {class: "highlight", "Positive Mindset"} }
                             li { "Team Player" }
-                            li { "Exceptional Ability to Learn" }
+                            li { "Adaptive Thinker" }
                         }
                     }
                 }

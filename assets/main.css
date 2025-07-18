@@ -2,6 +2,7 @@
 :root {
     --primary-color: #2b5797;
     --secondary-color: #4a90e2;
+    --third-color: #8a9ba8;
     --highlight-color: #d3e5fc;
     --text-color: #2c3e50;
     --light-gray: #f5f6fa;
@@ -85,11 +86,11 @@ body {
 
 /* Section styles */
 .cv-section {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .section-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: var(--primary-color);
     margin-bottom: 0.75rem;
     font-weight: 800;
@@ -112,21 +113,31 @@ body {
     margin-bottom: 1rem;
 }
 
-.experience-header, .education-header {
+.experience-header,
+.education-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline; /* Changed from flex-start to baseline */
+    align-items: baseline;
+    /* Changed from flex-start to baseline */
     margin-bottom: 0.5rem;
     border-bottom: 1px solid var(--border-color);
     flex-wrap: wrap;
     gap: 0.25rem;
 }
 
+.minor-role .experience-header {
+    border-bottom: none;
+}
+
+.minor-role .position{
+    margin-left: 0.5rem;
+}
+
 .company-name {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--secondary-color);
     font-weight: 600;
-    margin: 0.2rem;
+    margin: 0;
     display: flex;
     align-items: baseline;
 }
@@ -141,7 +152,7 @@ body {
 
 .duration {
     color: var(--text-color);
-    font-size: 0.85rem;
+    font-size: 0.7rem;
     white-space: nowrap;
     align-self: baseline;
     padding-top: 5px;
@@ -156,7 +167,8 @@ ul {
 
 .achievements li {
     position: relative;
-    padding-left: 1.25rem;
+    margin-left: 1rem;
+    padding-left: 1rem;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
 }
@@ -171,28 +183,35 @@ ul {
 /* Skills section */
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
 
 .skill-group h3 {
     font-size: 1rem;
     color: var(--secondary-color);
-    margin-bottom: 0.75rem;
+    margin: 0 0 0.75rem 0;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    justify-content: start;
 }
 
 .skills-list li {
-    padding: 0.5rem;
+    padding: 0.4rem;
+    padding-right: 0.75rem;
     background-color: var(--light-gray);
     border-radius: 0.4rem;
-    margin-bottom: 0.5rem;
     font-size: 0.85rem;
+    white-space: nowrap;
 }
 
 .list-header {
     color: var(--secondary-color);
     font-weight: 500;
-    margin: 0.25rem 0 0.75rem 0;
 }
 
 .github-container {
@@ -227,67 +246,37 @@ ul {
     font-size: inherit;
 }
 
-/* Minor roles container */
-.minor-roles-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-}
 
 /* Minor role and skills styling */
 .minor-role {
     opacity: 0.8;
-    transform: scale(0.95);
-    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 1rem 0.1rem 0 0.1rem;
 }
 
-.minor-role .company-name {
-    font-size: 0.95rem;
-    color: #6c7b7f;
+.minor-role .experience-item {
+    flex: 0 1 auto;
+    min-width: 0;
 }
 
-.minor-role .position {
-    font-size: 0.8rem;
-    color: #6c7b7f;
+.achievements li:only-child {
+    margin-left: 0;
+    padding-left: 0;
 }
 
-.minor-role .duration {
-    font-size: 0.75rem;
-    color: #8a9ba8;
+.achievements li:only-child::before {
+    content: "";
 }
 
-.minor-role .achievements li {
-    font-size: 0.8rem;
-    color: #5a6c75;
-}
-
-.minor-role .achievements li::before {
-    color: #8a9ba8;
-}
-
-.minor-skills {
-    opacity: 0.8;
-    transform: scale(0.9);
-}
-
-.minor-skills .list-header {
-    font-size: 0.85rem;
-    color: #6c7b7f;
-}
-
-.minor-skills .skills-list li {
-    font-size: 0.75rem;
-    background-color: #f8f9fa;
-    color: #5a6c75;
-    padding: 0.35rem;
-}
 
 .updated-at {
     text-align: center;
     font-size: 0.75rem;
-    color: #8a9ba8;
-    margin-top: 2rem;
+    color: var(--third-color);
+    margin-top: 1rem;
 }
 
 /* Mobile-first responsive design */
@@ -312,23 +301,25 @@ ul {
     }
 
     .section-title {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .company-name {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .position {
-        font-size: 0.8rem;
+        font-size: 0.65rem;
     }
 
     .duration {
-        font-size: 0.7rem;
+        font-size: 0.5rem;
     }
 
     .achievements li {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
+        margin-left: 0.35rem;
+        padding-left: 0.65rem;
     }
 
     .skill-group h3 {
@@ -336,12 +327,12 @@ ul {
     }
 
     .skills-list li {
-        font-size: 0.7rem;
-        padding: 0.4rem;
+        font-size: 0.6rem;
+        padding: 0.3rem;
     }
 
     .github-container {
-        margin-top: 0.75rem;
+        margin-top: 0.9rem;
     }
 
     .github-link {
@@ -349,8 +340,29 @@ ul {
         padding: 0.3rem 0.5rem;
     }
 
-    .minor-roles-container {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
+    .minor-role .experience-header {
+        margin-bottom: 0.15rem;
+    }
+
+    .minor-role .experience-item {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .minor-role .company-name {
+        font-size: 0.6rem;
+    }
+
+    .minor-role .position {
+        font-size: 0.6rem;
+    }
+
+    .minor-role .achievements li {
+        font-size: 0.55rem;
+        margin-bottom: 0;
+    }
+
+    .updated-at{
+        font-size: 0.6rem;
     }
 }
