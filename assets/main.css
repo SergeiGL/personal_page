@@ -37,7 +37,7 @@ body {
 .cv-header {
     text-align: center;
     margin-bottom: 1.5rem;
-    padding-bottom: 0.35rem;
+    padding-bottom: 0.3rem;
 }
 
 .cv-header h1 {
@@ -85,7 +85,7 @@ body {
 
 /* Section styles */
 .cv-section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .section-title {
@@ -227,6 +227,69 @@ ul {
     font-size: inherit;
 }
 
+/* Minor roles container */
+.minor-roles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Minor role and skills styling */
+.minor-role {
+    opacity: 0.8;
+    transform: scale(0.95);
+    margin-bottom: 0;
+}
+
+.minor-role .company-name {
+    font-size: 0.95rem;
+    color: #6c7b7f;
+}
+
+.minor-role .position {
+    font-size: 0.8rem;
+    color: #6c7b7f;
+}
+
+.minor-role .duration {
+    font-size: 0.75rem;
+    color: #8a9ba8;
+}
+
+.minor-role .achievements li {
+    font-size: 0.8rem;
+    color: #5a6c75;
+}
+
+.minor-role .achievements li::before {
+    color: #8a9ba8;
+}
+
+.minor-skills {
+    opacity: 0.8;
+    transform: scale(0.9);
+}
+
+.minor-skills .list-header {
+    font-size: 0.85rem;
+    color: #6c7b7f;
+}
+
+.minor-skills .skills-list li {
+    font-size: 0.75rem;
+    background-color: #f8f9fa;
+    color: #5a6c75;
+    padding: 0.35rem;
+}
+
+.updated-at {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #8a9ba8;
+    margin-top: 2rem;
+}
+
 /* Mobile-first responsive design */
 @media screen and (max-width: 480px) {
     .container {
@@ -282,7 +345,12 @@ ul {
     }
 
     .github-link {
-        font-size: 0.7rem;
-        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .minor-roles-container {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
     }
 }

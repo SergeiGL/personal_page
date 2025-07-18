@@ -2,6 +2,21 @@ use dioxus::prelude::*;
 
 const MAIN_CSS: Asset = asset!("/assets/main.css");
 
+fn format_number(num: u32) -> String {
+    let num_str = num.to_string();
+    let mut result = String::new();
+    let chars: Vec<char> = num_str.chars().collect();
+    
+    for (i, ch) in chars.iter().enumerate() {
+        if i > 0 && (chars.len() - i) % 3 == 0 {
+            result.push(',');
+        }
+        result.push(*ch);
+    }
+    
+    result
+}
+
 fn main() {
     dioxus::launch(App);
 }
@@ -28,7 +43,6 @@ fn App() -> Element {
     }
 }
 
-
 #[component]
 fn CV() -> Element {
     rsx! {
@@ -49,8 +63,8 @@ fn CV() -> Element {
                         // SVG for Telegram logo with appropriate sizing
                         svg {
                             xmlns: "http://www.w3.org/2000/svg",
-                            width: "16",
-                            height: "16",
+                            width: "18",
+                            height: "18",
                             view_box: "0 0 24 24",
                             fill: "currentColor",
                             class: "telegram-icon",
@@ -83,10 +97,10 @@ fn CV() -> Element {
                         span { class: "duration", "09/2024 - 08/2025" }
                     }
                     ul { class: "achievements",
-                        li { "World's fastest MCS algorithm implementation (>500x+ performance boost)"}
-                        li { "Ecosystem: Web, C++/Python connectors" }
-                        li { "400+ unit tests with 90% coverage" }
-                        li { "Applied to real-world financial problems: portfolio optimization and model calibration" }
+                        li { "World’s fastest MCS algorithm - 500x+ speedup"}
+                        li { "Ecosystem: Web, Python/C++ connectors" }
+                        li { "{format_number(23625)} lines; 392 tests" }
+                        li { "Applied to real-world financial problems" }
                     }
                 }
 
@@ -99,38 +113,38 @@ fn CV() -> Element {
                         span { class: "duration", "09/2023 - 05/2024" }
                     }
                     ul { class: "achievements",
-                        li { "Programming Trading Strategies (Python & C)" }
+                        li { "Trading Strategies (Python & C)" }
                         li { "Real-time Data Collection" }
-                        li { "Creation of Telegram Bots" }
-                        li { "Creation of GUI programs for Top Management" }
+                        li { "Telegram & GUI apps for top executives" }
                     }
                 }
 
-                div { class: "experience-item",
-                    div { class: "experience-header",
-                        h3 { class: "company-name", "McK Partners"
-                            span { class: "separator", "•" }
-                            span { class: "position", "Consultant Intern" }
+                div { class: "minor-roles-container",
+                    div { class: "experience-item minor-role",
+                        div { class: "experience-header",
+                            h3 { class: "company-name", "McK Partners"
+                                span { class: "separator", "•" }
+                                span { class: "position", "Consultant" }
+                            }
+                            span { class: "duration", "01/2024 - 02/2024" }
                         }
-                        span { class: "duration", "01/2024 - 02/2024" }
+
+                        ul { class: "achievements",
+                            li { "Presentations, Analytics, Market Research"}
+                        }
                     }
 
-                    ul { class: "achievements",
-                        li { "PowerPoint Presentations" }
-                        li { "Analytics, Market Research"}
-                    }
-                }
-
-                div { class: "experience-item",
-                    div { class: "experience-header",
-                        h3 { class: "company-name", "EVRAZ Group"
-                            span { class: "separator", "•" }
-                            span {class: "position", "Finance Intern"}
+                    div { class: "experience-item minor-role",
+                        div { class: "experience-header",
+                            h3 { class: "company-name", "EVRAZ Group"
+                                span { class: "separator", "•" }
+                                span {class: "position", "Finance Intern"}
+                            }
+                            span { class: "duration", "07/2023 - 09/2023" }
                         }
-                        span { class: "duration", "07/2023 - 08/2023" }
-                    }
-                    ul { class: "achievements",
-                        li { "Credit Documents Structuring (Python)" }
+                        ul { class: "achievements",
+                            li { "Credit Documents Structuring (Python OCR)" }
+                        }
                     }
                 }
             }
@@ -149,7 +163,6 @@ fn CV() -> Element {
                     ul { class: "achievements",
                         li { "Top 10% Academic Performance" }
                         li { "Optional Advanced Courses: Mathematics++, Statistics++, ML" }
-                        li { "Studying in English" }
                     }
                 }
 
@@ -159,7 +172,7 @@ fn CV() -> Element {
                         span { class: "duration", "2016 - 2020" }
                     }
                     ul { class: "achievements",
-                        li { "Specialization: Economics & Mathematics" }
+                        li { "Specialization: Mathematics & Economics" }
                         li { "4.8 Average Graduation Score" }
                     }
                 }
@@ -172,21 +185,19 @@ fn CV() -> Element {
                     div { class: "skill-group",
                         h3 { class: "list-header", "Programming" }
                         ul { class: "skills-list",
-                            li { span {class: "highlight", "Python"}" (parsing, ml, tg bots, analysis)" }
-                            li { span {class: "highlight", "Rust"}" (async, linear algebra)" }
-                            li { "PostgreSQL, MySQL, MongoDB, Redis" }
-                            li { "Linux (Ubuntu, Arch)" }
-                            li { "C/C++ (a bit)" }
+                            li { span {class: "highlight", "Rust"}" (tokio, axum, nalgebra)" }
+                            li { span {class: "highlight", "Python"}" (pytorch, selenium)" }
+                            li { "PostgreSQL, MongoDB, Redis" }
+                            li { "Docker, Kubernetes" }
                         }
                     }
-                    div { class: "skill-group",
+                    div { class: "skill-group minor-skills",
                         h3 {class: "list-header", "Analytics" }
                         ul { class: "skills-list",
-                            li { "Excel + VBA" }
+                            li { "NumPy, Pandas, Plotly, SciPy" }
                             li { "PowerPoint" }
-                            li { "LaTeX"}
-                            li { "Word" }
-                            li {"Power BI"}
+                            li { "Excel, VBA" }
+                            li { "LaTeX, Word"}
                         }
                     }
                 }
@@ -216,6 +227,9 @@ fn CV() -> Element {
                         }
                     }
                 }
+            }
+            div { class: "updated-at",
+                "Last updated: July 2025"
             }
         }
     }
