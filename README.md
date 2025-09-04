@@ -24,4 +24,4 @@ Simply edit `index.html` and `assets/main.css` to make changes. The site automat
 
 ## Live Site
 
-Visit: https://sglukhov.ru
+Visit: https://sglukhov.com
