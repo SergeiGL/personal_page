@@ -18,12 +18,24 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
+          # Copy files to temp directory
+          mkdir -p /tmp/deploy
+          cp index.html /tmp/deploy/
+          cp -r assets /tmp/deploy/
+
+          # Configure git
           git config --global user.email "sergei8956a@gmail.com"
           git config --global user.name "Sergei"
+
+          # Switch to gh-pages branch
           git checkout gh-pages || git checkout --orphan gh-pages
           git rm -rf . || true
-          cp index.html .
-          cp -r assets .
+
+          # Copy files back
+          cp /tmp/deploy/index.html .
+          cp -r /tmp/deploy/assets .
+
+          # Commit and push
           git add .
           git commit -m "Deploy to GitHub Pages"
           git push -f origin gh-pages
