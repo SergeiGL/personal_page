@@ -146,7 +146,6 @@ body {
   font-size: 0.9rem;
 }
 
-
 .company-name {
   font-size: 1rem;
   color: var(--secondary-color);
@@ -163,10 +162,21 @@ body {
   padding: 0.1rem 0.3rem;
   border-radius: 0.2rem;
   font-weight: 500;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   align-self: center;
-  margin-right: 0.25rem;
+  margin-left: 0.2rem;
+  margin-right: 0.5rem;
+}
+
+.education-item {
+  margin-bottom: 0.5rem;
+}
+
+.minor-role .country-tag {
+  margin-left: 0.05rem;
+  margin-right: 0.2rem;
+  letter-spacing: 0.3px;
 }
 
 .position {
@@ -196,7 +206,7 @@ ul {
   position: relative;
   margin-left: 0.5rem;
   padding-left: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   font-size: 0.9rem;
 }
 
