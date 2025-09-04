@@ -35,6 +35,9 @@ jobs:
           cp /tmp/deploy/index.html .
           cp -r /tmp/deploy/assets .
 
+          # Create CNAME file for custom domain
+          echo "sglukhov.com" > CNAME
+
           # Commit and push
           git add .
           git commit -m "Deploy to GitHub Pages"
